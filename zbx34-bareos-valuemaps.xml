@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2019-02-19T11:58:59Z</date>
+    <value_maps>
+        <value_map>
+            <name>Bareos job status</name>
+            <mappings>
+                <mapping>
+                    <value>A</value>
+                    <newvalue>Canceled by the user</newvalue>
+                </mapping>
+                <mapping>
+                    <value>B</value>
+                    <newvalue>Blocked</newvalue>
+                </mapping>
+                <mapping>
+                    <value>c</value>
+                    <newvalue>Waiting for Client resource</newvalue>
+                </mapping>
+                <mapping>
+                    <value>C</value>
+                    <newvalue>Created but not yet running</newvalue>
+                </mapping>
+                <mapping>
+                    <value>D</value>
+                    <newvalue>Verify Differences</newvalue>
+                </mapping>
+                <mapping>
+                    <value>d</value>
+                    <newvalue>Wating for Maximum jobs</newvalue>
+                </mapping>
+                <mapping>
+                    <value>E</value>
+                    <newvalue>Terminated in Error</newvalue>
+                </mapping>
+                <mapping>
+                    <value>e</value>
+                    <newvalue>Non-fatal error</newvalue>
+                </mapping>
+                <mapping>
+                    <value>F</value>
+                    <newvalue>Waiting on the File daemon</newvalue>
+                </mapping>
+                <mapping>
+                    <value>f</value>
+                    <newvalue>Fatal error</newvalue>
+                </mapping>
+                <mapping>
+                    <value>j</value>
+                    <newvalue>Waiting for Job resource</newvalue>
+                </mapping>
+                <mapping>
+                    <value>m</value>
+                    <newvalue>Waiting for a new Volume to be mounted</newvalue>
+                </mapping>
+                <mapping>
+                    <value>M</value>
+                    <newvalue>Waiting for a Mount</newvalue>
+                </mapping>
+                <mapping>
+                    <value>p</value>
+                    <newvalue>aiting for higher priority job to finish</newvalue>
+                </mapping>
+                <mapping>
+                    <value>R</value>
+                    <newvalue>Running</newvalue>
+                </mapping>
+                <mapping>
+                    <value>S</value>
+                    <newvalue>Waiting on the Storage daemon</newvalue>
+                </mapping>
+                <mapping>
+                    <value>s</value>
+                    <newvalue>Waiting for Storage resource</newvalue>
+                </mapping>
+                <mapping>
+                    <value>t</value>
+                    <newvalue>Waiting for Start Time</newvalue>
+                </mapping>
+                <mapping>
+                    <value>T</value>
+                    <newvalue>Terminated normally</newvalue>
+                </mapping>
+                <mapping>
+                    <value>W</value>
+                    <newvalue>Warning</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
