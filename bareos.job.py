@@ -26,8 +26,9 @@ def last_size(args):
 
 def get_time(args):
     console = create_console()
-    dir_time = console.call('time')['time']['full']
-    print(int(time.mktime(datetime.datetime.strptime(dir_time,"%a %d-%b-%Y %H:%M:%S").timetuple())))
+    t = console.call('time')["time"]
+    dt=datetime.datetime(int(t["year"]),int(t["month"]),int(t["day"]),int(t["hour"]),int(t["minute"]),int(t["second"]))
+    print(int(time.mktime(dt.timetuple())))
 
 def get_total_jobs(args):
     console = create_console()
