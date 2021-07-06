@@ -33,7 +33,7 @@ def get_total_jobs(args):
     console = create_console()
     total_jobs = console.call(".sql query=\"SELECT COUNT(Job) FROM Job;\"")
     try:
-        print total_jobs['query'][0]['count']
+        print total_jobs['query'][0]['count(job)']
     except KeyError:
         print(0)
 
