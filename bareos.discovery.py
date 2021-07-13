@@ -20,7 +20,7 @@ jobs_list = console.call(".jobs")
 
 for job in jobs_list['jobs']:
     temp[job['name']] = { 'enabled': str(job['enabled'])}
-    job_details = console.call(".defaults job={}".format(job['name']))
+    job_details = console.call('.defaults job="{}"'.format(job['name']))
     temp[job['name']]['type'] = job_details['defaults']['type']
 
 for name in temp.keys():
