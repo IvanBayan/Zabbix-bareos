@@ -6,10 +6,14 @@ import time
 import datetime
 import re
 
-host = "bareos-director.local"
-user = "zabbix"
-password = bareos.bsock.Password("ChangeMe")
+configfile = '/etc/zabbix/zabbix_bareos.yml'
 
+with open(configfile, 'r') as ymlfile:
+    config = yaml.load(ymlfile, yaml.SafeLoader)
+
+user = config['user']
+password = bareos.bsock.Password(config['password'])
+host = config['host']
 
 def create_console():
     console = bareos.bsock.DirectorConsoleJson(
