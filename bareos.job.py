@@ -5,6 +5,7 @@ import argparse
 import time
 import datetime
 import re
+import yaml
 
 configfile = '/etc/zabbix/zabbix_bareos.yml'
 

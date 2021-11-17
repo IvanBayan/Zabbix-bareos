@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import bareos.bsock
+import yaml
 
 configfile = '/etc/zabbix/zabbix_bareos.yml'
 
