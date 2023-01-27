@@ -1,4 +1,4 @@
-#! /usr/bin/env python2.7
+#! /usr/bin/env python3
 import sys
 import bareos.bsock
 import argparse
@@ -26,13 +26,13 @@ def create_console():
 def last_status(args):
     console = create_console()
     last_job = console.call('llist job="{}" last'.format(args.job))
-    print(last_job["jobs"][0]["jobstatus"])
+    print((last_job["jobs"][0]["jobstatus"]))
 
 
 def last_size(args):
     console = create_console()
     last_job = console.call('llist job="{}" jobstatus=T last'.format(args.job))
-    print(last_job["jobs"][0]["jobbytes"])
+    print((last_job["jobs"][0]["jobbytes"]))
 
 
 def get_time(args):
@@ -46,7 +46,7 @@ def get_time(args):
         int(t["minute"]),
         int(t["second"]),
     )
-    print(int(time.mktime(dt.timetuple())))
+    print((int(time.mktime(dt.timetuple()))))
 
 
 def get_total_jobs(args):
@@ -54,11 +54,11 @@ def get_total_jobs(args):
     total_jobs = console.call('.sql query="SELECT COUNT(Job) FROM Job;"')
     try:
         if total_jobs["query"][0].get("count"):
-            print(total_jobs["query"][0]["count"])
+            print((total_jobs["query"][0]["count"]))
         else:
-            print(total_jobs["query"][0]["count(job)"])
+            print((total_jobs["query"][0]["count(job)"]))
     except KeyError:
-        print(-1)
+        print((-1))
 
 
 def get_job_estimate(args):
@@ -68,7 +68,7 @@ def get_job_estimate(args):
     # console.send("estimate job={}".format(args.job))
     estimate = console.call('estimate job="{}"'.format(args.job))
     m = re.search("bytes=([0-9,]+)", re.sub(",", "", estimate))
-    print(int(m.group(1)))
+    print((int(m.group(1))))
 
 
 if __name__ == "__main__":
@@ -96,4 +96,8 @@ if __name__ == "__main__":
     get_job_estimate_parser.set_defaults(func=get_job_estimate)
 
     args = parser.parse_args()
-    args.func(args)
+    try:
+        args.func(args)
+    except AttributeError:
+        parser.print_help()
+        parser.exit()
