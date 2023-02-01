@@ -1,13 +1,19 @@
-#! /usr/bin/env python2.7
+#! /usr/bin/env python3
 
 import os
 import sys
 import json
 import bareos.bsock
+import yaml
 
-host = "bareos-director.local"
-user = "zabbix"
-password=bareos.bsock.Password("ChangeMe")
+configfile = '/etc/zabbix/zabbix_bareos.yml'
+
+with open(configfile, 'r') as ymlfile:
+    config = yaml.load(ymlfile, yaml.SafeLoader)
+
+user = config['user']
+password = bareos.bsock.Password(config['password'])
+host = config['host']
 
 console = bareos.bsock.DirectorConsoleJson(address=host, port=9101, name=user, password=password)
 
