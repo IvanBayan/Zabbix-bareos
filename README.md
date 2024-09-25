@@ -15,9 +15,10 @@ That solution uses API to gather metrics from bareos, all you need to configure 
 2. Install **python-bareos** module (it can be found in official repository since v18 or in pip)
 3. Create config at **zabbix_bareos.yml**, set host, user and password:
 ```
-host=bareos-dir.example.org
-user=zabbix
-password=ChangeMe
+---
+host: bareos-dir.example.org
+user: zabbix
+password: ChangeMe
 ```
 4. Run **bareos.discovery.py** to be sure that all was configured correctly (you should get valid JSON)
 5. Put scripts in zabbix-agent scripts dir & set correct permissions
