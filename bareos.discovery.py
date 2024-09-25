@@ -13,9 +13,10 @@ with open(configfile, 'r') as ymlfile:
 
 user = config['user']
 password = bareos.bsock.Password(config['password'])
-host = config['host']
+host = config.get('host', "localhost")
+port = config.get('port', 9101)
 
-console = bareos.bsock.DirectorConsoleJson(address=host, port=9101, name=user, password=password)
+console = bareos.bsock.DirectorConsoleJson(address=host, port=port, name=user, password=password)
 
 # logdir = sys.argv[1]
 

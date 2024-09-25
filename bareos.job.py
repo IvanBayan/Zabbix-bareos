@@ -14,11 +14,12 @@ with open(configfile, 'r') as ymlfile:
 
 user = config['user']
 password = bareos.bsock.Password(config['password'])
-host = config['host']
+host = config.get('host', "localhost")
+port = config.get('port', 9101)
 
 def create_console():
     console = bareos.bsock.DirectorConsoleJson(
-        address=host, port=9101, name=user, password=password
+        address=host, port=port, name=user, password=password
     )
     return console
 
@@ -63,7 +64,7 @@ def get_total_jobs(args):
 
 def get_job_estimate(args):
     console = bareos.bsock.DirectorConsole(
-        address=host, port=9101, name=user, password=password
+        address=host, port=port, name=user, password=password
     )
     # console.send("estimate job={}".format(args.job))
     estimate = console.call('estimate job="{}"'.format(args.job))
